@@ -11,6 +11,7 @@ Each picture ships as AVIF and WebP at several widths; the page picks one with s
 """
 import os
 
+import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -29,7 +30,24 @@ AVIF_QUALITY = 58
 BACKGROUND = (11, 10, 16)
 FONT = "/System/Library/Fonts/SFNS.ttf"
 
-PHONE_WIDTHS = (360, 600, 900, 1320)
+PHONE_WIDTHS = (360, 600, 720, 900, 1320)
+
+# The sample pages were served from the Mac, so Safari's address bar reads "localhost". The label is
+# repainted with the sample site's host: the bar's own background is interpolated across the old
+# ink box, then the host is drawn in SF Pro Regular at the size that matches Safari's label.
+ADDRESS_INK_BOX = (558, 2675, 764, 2713)
+ADDRESS_FONT_SIZE = 55
+ADDRESS_PAD = 6
+ADDRESS_SAMPLE = 30
+ARTICLE_HOST = "thedailyweb.com"
+FORUM_HOST = "nightshift.forum"
+SAFARI_HOSTS = {
+    "article_orig.png": ARTICLE_HOST,
+    "article_dark.png": ARTICLE_HOST,
+    "c_talk.png": ARTICLE_HOST,
+    "forum_orig.png": FORUM_HOST,
+    "forum_light.png": FORUM_HOST,
+}
 FRAMED_WIDTHS = (360, 600, 900)
 
 # Unframed screens: the before/after pairs sit under the live frame overlay on the page.
@@ -61,6 +79,37 @@ def clean(image):
     return fresh
 
 
+def repaint_host(image, source):
+    """Swap the 'localhost' address bar label for the sample site's host."""
+    host = SAFARI_HOSTS.get(source)
+    if host is None:
+        return image
+    mode = image.mode
+    pixels = np.array(image.convert("RGBA"))
+    original = pixels.copy()
+    x0, y0, x1, y1 = ADDRESS_INK_BOX
+    left_x = x0 - ADDRESS_PAD - 40
+    right_x = x1 + ADDRESS_PAD + 40
+    for y in range(y0 - ADDRESS_PAD, y1 + ADDRESS_PAD + 1):
+        left = np.median(original[y, left_x:left_x + ADDRESS_SAMPLE, :3], axis=0)
+        right = np.median(original[y, right_x - ADDRESS_SAMPLE:right_x, :3], axis=0)
+        for x in range(x0 - ADDRESS_PAD - 10, x1 + ADDRESS_PAD + 11):
+            t = (x - left_x) / (right_x - left_x)
+            pixels[y, x, :3] = (left * (1 - t) + right * t).round()
+    ink = original[y0:y1 + 1, x0:x1 + 1, :3].astype(int).sum(axis=2)
+    ground = pixels[y0:y1 + 1, x0:x1 + 1, :3].astype(int).sum(axis=2)
+    row, col = np.unravel_index(np.abs(ink - ground).argmax(), ink.shape)
+    colour = tuple(int(c) for c in original[y0 + row, x0 + col, :3]) + (255,)
+    font = ImageFont.truetype(FONT, ADDRESS_FONT_SIZE)
+    font.set_variation_by_name("Regular")
+    reference = font.getbbox("localhost")
+    box = font.getbbox(host)
+    repainted = Image.fromarray(pixels)
+    x = (x0 + x1) / 2 - (box[2] - box[0]) / 2 - box[0]
+    ImageDraw.Draw(repainted).text((x, y0 - reference[1]), host, font=font, fill=colour)
+    return repainted.convert(mode)
+
+
 def save_pair(image, stem):
     """WebP and AVIF of the same pixels."""
     image.save(os.path.join(IMG, f"{stem}.webp"), "WEBP", quality=WEBP_QUALITY, method=6)
@@ -69,7 +118,7 @@ def save_pair(image, stem):
 
 def build_sources():
     for name, (source, box, widths) in SOURCES.items():
-        image = clean(Image.open(os.path.join(CAPS, source))).convert("RGB")
+        image = repaint_host(clean(Image.open(os.path.join(CAPS, source))), source).convert("RGB")
         if box:
             image = image.crop(box)
         for width in widths:
@@ -82,7 +131,7 @@ def build_framed():
     for name, (source, device, widths) in FRAMED.items():
         frame = Image.open(os.path.join(FRAMES, device["frame"])).convert("RGBA")
         mask = Image.open(os.path.join(FRAMES, device["mask"])).convert("L")
-        shot = clean(Image.open(os.path.join(CAPS, source))).convert("RGBA")
+        shot = repaint_host(clean(Image.open(os.path.join(CAPS, source))), source).convert("RGBA")
         if shot.size != device["screen"]:
             raise SystemExit(f"{source}: {shot.size} does not match the {device['frame']} screen")
         canvas = Image.new("RGBA", frame.size, (0, 0, 0, 0))
@@ -143,8 +192,8 @@ def build_og():
     title.set_variation_by_name("Bold")
     body = ImageFont.truetype(FONT, 32)
     body.set_variation_by_name("Regular")
-    draw.text((470, 190), "Dark when it's late.", font=title, fill=(242, 240, 247))
-    draw.text((470, 272), "Light when it's not.", font=title, fill=(185, 166, 255))
+    draw.text((470, 190), "Dark when it\u2019s late.", font=title, fill=(242, 240, 247))
+    draw.text((470, 272), "Light when it\u2019s not.", font=title, fill=(185, 166, 255))
     draw.text((470, 384), "Darc, a Safari extension for", font=body, fill=(162, 157, 179))
     draw.text((470, 426), "iPhone, iPad and Mac.", font=body, fill=(162, 157, 179))
     canvas.save(os.path.join(SITE, "og-image.png"), optimize=True)

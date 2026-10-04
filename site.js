@@ -12,8 +12,12 @@
         var range = figure.querySelector(".split-range");
         if (!screen || !range) { return; }
 
+        // The range stops short of the edges so the 44px grip never slides under the frame.
+        var low = Number(range.min) || 0;
+        var high = Number(range.max) || 100;
+
         function show(value) {
-            var clamped = Math.max(0, Math.min(100, value));
+            var clamped = Math.max(low, Math.min(high, value));
             screen.style.setProperty("--pos", clamped + "%");
             return clamped;
         }
