@@ -14,21 +14,21 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://darcapp.com/"
 APP_STORE = "https://apps.apple.com/app/id6819036330"
 APP_ID = "6819036330"
-STYLE_VERSION = "1"
-FORBIDDEN = ["\u2014", "\u2013"]
+STYLE_VERSION = "3"
+FORBIDDEN = ["\u2014", "\u2013", "&mdash;", "&ndash;", "&#8212;", "&#8211;"]
 
 # file -> (title, description, canonical path)
 PAGES = {
     "index.html": (
         "Darc: Dark and Light Mode for Safari",
-        "Darc themes every website in Safari both ways: a real dark theme for bright sites and a "
-        "light theme for dark-only sites. Per-site rules, dark hours, true black. iPhone, iPad and Mac.",
+        "Darc is a Safari extension that gives bright websites a real dark theme and dark-only "
+        "websites a light one, on iPhone, iPad and Mac. No account, no servers, no subscription.",
         "",
     ),
     "support.html": (
-        "Support | Darc",
+        "Help with Darc",
         "Turn on the Darc extension in Safari on iPhone, iPad and Mac, fix a site that looks wrong, "
-        "restore your purchase and contact us.",
+        "restore your purchase and get in touch.",
         "support.html",
     ),
     "privacy.html": (
@@ -54,7 +54,7 @@ HEAD = """<meta charset="UTF-8">
     <meta name="apple-itunes-app" content="app-id={app_id}">
     <title>{title}</title>
     <meta name="description" content="{description}">
-    <meta name="theme-color" content="#0D0D17">
+    <meta name="theme-color" content="#0B0A10">
     <meta name="color-scheme" content="dark">{canonical}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Darc">
@@ -64,7 +64,7 @@ HEAD = """<meta charset="UTF-8">
     <meta property="og:image" content="{domain}og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Darc app icon, a glowing purple crescent around a warm golden light, next to the words Your web, your way.">
+    <meta property="og:image:alt" content="The Darc app icon, a glowing violet crescent, next to the words Dark when it's late. Light when it's not.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{title}">
     <meta name="twitter:description" content="{description}">
@@ -73,46 +73,43 @@ HEAD = """<meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="/styles.css?v={style_version}">"""
+    <link rel="stylesheet" href="/styles.css?v={style_version}">
+    <script>document.documentElement.classList.add("js")</script>"""
 
 HEADER = """<header class="site-header">
-        <div class="container bar">
-            <a class="brand" href="/" aria-label="Darc home">
-                <img src="/img/app-icon-128.webp" width="34" height="34" alt="">
+        <div class="wrap bar">
+            <a class="brand" href="/" aria-label="Darc, home">
+                <picture><source type="image/avif" srcset="/img/app-icon-64.avif 1x, /img/app-icon-128.avif 2x"><img src="/img/app-icon-64.webp" srcset="/img/app-icon-64.webp 1x, /img/app-icon-128.webp 2x" width="32" height="32" alt=""></picture>
                 <span>Darc</span>
             </a>
-            <nav aria-label="Main">
+            <nav class="nav" aria-label="Main">
                 <ul class="nav-links">
-                    <li class="nav-hide"><a href="/#features">Features</a></li>
-                    <li class="nav-hide"><a href="/#privacy">Privacy</a></li>
-                    <li class="nav-hide"><a href="/#faq">FAQ</a></li>
-                    <li class="nav-hide"><a href="/support.html">Support</a></li>
-                    <li><a class="nav-cta" href="{app_store}">Get Darc</a></li>
+                    <li><a href="/#how">How it works</a></li>
+                    <li><a href="/#price">Price</a></li>
+                    <li><a href="/#privacy">Privacy</a></li>
+                    <li><a href="/#questions">Questions</a></li>
                 </ul>
             </nav>
+            <a class="badge badge-nav" href="{app_store}"><img src="/img/app-store-black-en-us.svg" width="120" height="40" alt="Download Darc on the App Store"></a>
         </div>
     </header>"""
 
 FOOTER = """<footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <a class="brand" href="/" aria-label="Darc home">
-                    <img src="/img/app-icon-128.webp" width="28" height="28" alt="">
-                    <span>Darc</span>
-                </a>
-                <nav aria-label="Footer">
-                    <ul class="footer-links">
-                        <li><a href="/support.html">Support</a></li>
-                        <li><a href="/privacy.html">Privacy Policy</a></li>
-                        <li><a href="/terms.html">Terms of Use</a></li>
-                        <li><a href="/support.html#acknowledgements">Acknowledgements</a></li>
-                        <li><a href="mailto:iosallapps@icloud.com">iosallapps@icloud.com</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="wrap">
+            <p class="footer-maker">Darc is made by Darius Cirjan, one person. Questions go straight to me: <a href="mailto:iosallapps@icloud.com">iosallapps@icloud.com</a>.</p>
+            <nav aria-label="Footer">
+                <ul class="footer-links">
+                    <li><a href="/#how">How it works</a></li>
+                    <li><a href="/#price">Price</a></li>
+                    <li><a href="/#questions">Questions</a></li>
+                    <li><a href="/support.html">Support</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                    <li><a href="/support.html#acknowledgements">Acknowledgements</a></li>
+                </ul>
+            </nav>
             <div class="footer-small">
-                <p>Darc's theming engine includes <a href="https://github.com/darkreader/darkreader">Dark Reader</a>, Copyright (c) 2026 Dark Reader Ltd., used under the <a href="/support.html#acknowledgements">MIT License</a>.</p>
-                <p>Darc is made by Darius Cirjan. Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+                <p>Darc's theming engine includes Dark Reader, Copyright (c) 2026 Dark Reader Ltd., MIT License. Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
                 <p>&copy; 2026 Darius Cirjan</p>
             </div>
         </div>
@@ -147,7 +144,7 @@ def main():
         source = replace_block(source, "footer", FOOTER)
         for dash in FORBIDDEN:
             if dash in source:
-                sys.exit(f"{page}: contains a forbidden dash U+{ord(dash):04X}")
+                sys.exit(f"{page}: contains a forbidden dash {dash!r}")
         with open(path, "w", encoding="utf-8") as handle:
             handle.write(source)
         print("built", page)
