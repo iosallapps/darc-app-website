@@ -32,22 +32,21 @@ FONT = "/System/Library/Fonts/SFNS.ttf"
 
 PHONE_WIDTHS = (360, 600, 720, 900, 1320)
 
-# The sample pages were served from the Mac, so Safari's address bar reads "localhost". The label is
-# repainted with the sample site's host: the bar's own background is interpolated across the old
-# ink box, then the host is drawn in SF Pro Regular at the size that matches Safari's label.
+# The sample pages were served from the Mac, so Safari's address bar reads "localhost". They are
+# published on this site under /demo/, so the label is repainted with darcapp.com: the bar's own
+# background is interpolated across the old ink box, then the host is drawn in SF Pro Regular at
+# the size that matches Safari's label.
 ADDRESS_INK_BOX = (558, 2675, 764, 2713)
 ADDRESS_FONT_SIZE = 55
 ADDRESS_PAD = 6
 ADDRESS_SAMPLE = 30
-ARTICLE_HOST = "thedailyweb.com"
-FORUM_HOST = "nightshift.forum"
-SAFARI_HOSTS = {
-    "article_orig.png": ARTICLE_HOST,
-    "article_dark.png": ARTICLE_HOST,
-    "c_talk.png": ARTICLE_HOST,
-    "forum_orig.png": FORUM_HOST,
-    "forum_light.png": FORUM_HOST,
-}
+DEMO_HOST = "darcapp.com"
+SAFARI_CAPTURES = {"article_orig.png", "article_dark.png", "c_talk.png", "forum_orig.png", "forum_light.png"}
+# The toolbar menu capture names the site in its header, uppercase and tracked.
+POPUP_CAPTURE = "popup.png"
+POPUP_INK_BOX = (49, 75, 460, 105)
+POPUP_OLD_LABEL = "THEDAILYWEB.COM"
+POPUP_PAD = 4
 FRAMED_WIDTHS = (360, 600, 900)
 
 # Unframed screens: the before/after pairs sit under the live frame overlay on the page.
@@ -81,9 +80,11 @@ def clean(image):
 
 def repaint_host(image, source):
     """Swap the 'localhost' address bar label for the sample site's host."""
-    host = SAFARI_HOSTS.get(source)
-    if host is None:
+    if source == POPUP_CAPTURE:
+        return repaint_popup_host(image)
+    if source not in SAFARI_CAPTURES:
         return image
+    host = DEMO_HOST
     mode = image.mode
     pixels = np.array(image.convert("RGBA"))
     original = pixels.copy()
@@ -107,6 +108,40 @@ def repaint_host(image, source):
     repainted = Image.fromarray(pixels)
     x = (x0 + x1) / 2 - (box[2] - box[0]) / 2 - box[0]
     ImageDraw.Draw(repainted).text((x, y0 - reference[1]), host, font=font, fill=colour)
+    return repainted.convert(mode)
+
+
+def tracked_width(font, text, tracking):
+    return sum(font.getlength(ch) for ch in text) + tracking * (len(text) - 1)
+
+
+def repaint_popup_host(image):
+    """The menu header shows the host in tracked capitals; redraw it as DARCAPP.COM."""
+    mode = image.mode
+    canvas = image.convert("RGBA")
+    pixels = np.array(canvas)
+    x0, y0, x1, y1 = POPUP_INK_BOX
+    ink = pixels[y0:y1 + 1, x0:x1 + 1, :3].astype(int)
+    ground = np.median(pixels[y0 - 20:y0 - 10, x0:x1, :3].reshape(-1, 3), axis=0)
+    row, col = np.unravel_index(np.abs(ink - ground).sum(axis=2).argmax(), ink.shape[:2])
+    colour = tuple(int(c) for c in ink[row, col]) + (255,)
+    pixels[y0 - POPUP_PAD:y1 + POPUP_PAD + 1, x0 - POPUP_PAD:x1 + POPUP_PAD + 1, :3] = ground.round()
+    size = 30
+    while True:
+        font = ImageFont.truetype(FONT, size)
+        font.set_variation_by_name("Semibold")
+        top, bottom = font.getbbox("H")[1], font.getbbox("H")[3]
+        if bottom - top >= y1 - y0 + 1:
+            break
+        size += 1
+    natural = tracked_width(font, POPUP_OLD_LABEL, 0)
+    tracking = ((x1 - x0 + 1) - natural) / (len(POPUP_OLD_LABEL) - 1)
+    repainted = Image.fromarray(pixels)
+    draw = ImageDraw.Draw(repainted)
+    x = x0 - font.getbbox(DEMO_HOST.upper()[0])[0]
+    for ch in DEMO_HOST.upper():
+        draw.text((x, y0 - top), ch, font=font, fill=colour)
+        x += font.getlength(ch) + tracking
     return repainted.convert(mode)
 
 
