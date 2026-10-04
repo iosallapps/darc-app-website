@@ -6,38 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-itunes-app" content="app-id=6819036330">
     <title>Darc: Dark and Light Mode for Safari</title>
-    <meta name="description" content="Darc themes every website in Safari both ways: a real dark theme for bright sites and a light theme for dark-only sites. Per-site rules, dark hours, true black. iPhone, iPad and Mac.">
-    <meta name="theme-color" content="#0D0D17">
+    <meta name="description" content="Darc is a Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. No account, no servers, no subscription.">
+    <meta name="theme-color" content="#0B0A10">
     <meta name="color-scheme" content="dark">
     <link rel="canonical" href="https://darcapp.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Darc">
     <meta property="og:url" content="https://darcapp.com/">
     <meta property="og:title" content="Darc: Dark and Light Mode for Safari">
-    <meta property="og:description" content="Darc themes every website in Safari both ways: a real dark theme for bright sites and a light theme for dark-only sites. Per-site rules, dark hours, true black. iPhone, iPad and Mac.">
+    <meta property="og:description" content="Darc is a Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. No account, no servers, no subscription.">
     <meta property="og:image" content="https://darcapp.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Darc app icon, a glowing purple crescent around a warm golden light, next to the words Your web, your way.">
+    <meta property="og:image:alt" content="The Darc app icon, a glowing violet crescent, next to the words Dark when it’s late. Light when it’s not.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Darc: Dark and Light Mode for Safari">
-    <meta name="twitter:description" content="Darc themes every website in Safari both ways: a real dark theme for bright sites and a light theme for dark-only sites. Per-site rules, dark hours, true black. iPhone, iPad and Mac.">
+    <meta name="twitter:description" content="Darc is a Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. No account, no servers, no subscription.">
     <meta name="twitter:image" content="https://darcapp.com/og-image.png">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="/styles.css?v=1">
+    <link rel="stylesheet" href="/styles.css?v=4">
+    <script>document.documentElement.classList.add("js")</script>
     <!-- /build:head -->
-    <link rel="preload" as="image" href="/img/art-browsers-900.webp" imagesrcset="/img/art-browsers-560.webp 560w, /img/art-browsers-900.webp 900w" imagesizes="(min-width: 900px) 520px, 90vw">
+    <link rel="preload" as="image" type="image/avif" imagesrcset="/img/web-article-original-360.avif 360w, /img/web-article-original-600.avif 600w, /img/web-article-original-720.avif 720w, /img/web-article-original-900.avif 900w, /img/web-article-original-1320.avif 1320w" imagesizes="(min-width: 768px) 440px, min(400px, 92vw)">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
-      "name": "Darc: Dark & Light Mode",
+      "name": "Darc",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "iOS 18.0 or later, iPadOS 18.0 or later, macOS 15.0 or later",
-      "description": "A Safari extension that themes every website both ways: a real dark theme for bright sites and a light theme for dark-only sites.",
+      "description": "A Safari extension that gives bright websites a real dark theme and dark-only websites a light one.",
       "url": "https://darcapp.com/",
       "downloadUrl": "https://apps.apple.com/app/id6819036330",
       "author": { "@type": "Person", "name": "Darius Cirjan" }
@@ -49,314 +50,257 @@
 
     <!-- build:header -->
     <header class="site-header">
-        <div class="container bar">
-            <a class="brand" href="/" aria-label="Darc home">
-                <img src="/img/app-icon-128.webp" width="34" height="34" alt="">
+        <div class="wrap bar">
+            <a class="brand" href="/" aria-label="Darc, home">
+                <picture><source type="image/avif" srcset="/img/app-icon-64.avif 1x, /img/app-icon-128.avif 2x"><img src="/img/app-icon-64.webp" srcset="/img/app-icon-64.webp 1x, /img/app-icon-128.webp 2x" width="32" height="32" alt=""></picture>
                 <span>Darc</span>
             </a>
-            <nav aria-label="Main">
+            <nav class="nav" aria-label="Main">
                 <ul class="nav-links">
-                    <li class="nav-hide"><a href="/#features">Features</a></li>
-                    <li class="nav-hide"><a href="/#privacy">Privacy</a></li>
-                    <li class="nav-hide"><a href="/#faq">FAQ</a></li>
-                    <li class="nav-hide"><a href="/support.html">Support</a></li>
-                    <li><a class="nav-cta" href="https://apps.apple.com/app/id6819036330">Get Darc</a></li>
+                    <li><a href="/#how">How it works</a></li>
+                    <li><a href="/#price">Price</a></li>
+                    <li><a href="/#privacy">Privacy</a></li>
+                    <li><a href="/#questions">Questions</a></li>
                 </ul>
             </nav>
+            <a class="badge badge-nav" href="https://apps.apple.com/app/id6819036330"><img src="/img/app-store-black-en-us.svg" width="120" height="40" alt="Download Darc on the App Store"></a>
         </div>
     </header>
     <!-- /build:header -->
 
     <main id="main">
         <section class="hero" aria-labelledby="hero-title">
-            <div class="container hero-grid">
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Safari extension for iPhone, iPad and Mac</p>
+                    <h1 id="hero-title"><span class="line">Dark when it’s late.</span> <span class="line">Light when it’s not.</span></h1>
+                    <p class="hero-sub">Darc gives bright websites a real dark theme, and gives dark-only websites a light one. It runs inside Safari and nowhere else.</p>
+                    <div class="hero-cta">
+                        <a class="badge" href="https://apps.apple.com/app/id6819036330"><img src="/img/app-store-black-en-us.svg" width="135" height="45" alt="Download Darc on the App Store"></a>
+                        <p class="small">Free to download. One optional purchase, no subscription.</p>
+                    </div>
+                </div>
+                <div class="hero-media">
+                <figure class="compare" data-nudge>
+                    <div class="compare-labels" aria-hidden="true"><span>Original</span><span>With Darc</span></div>
+                    <div class="device">
+                        <div class="screen">
+                            <picture class="before"><source type="image/avif" srcset="/img/web-article-original-360.avif 360w, /img/web-article-original-600.avif 600w, /img/web-article-original-720.avif 720w, /img/web-article-original-900.avif 900w, /img/web-article-original-1320.avif 1320w" sizes="(min-width: 768px) 440px, min(400px, 92vw)"><img src="/img/web-article-original-600.webp" srcset="/img/web-article-original-360.webp 360w, /img/web-article-original-600.webp 600w, /img/web-article-original-720.webp 720w, /img/web-article-original-900.webp 900w, /img/web-article-original-1320.webp 1320w" sizes="(min-width: 768px) 440px, min(400px, 92vw)" width="1320" height="2868" alt="A sample article, The Daily Web, as the site built it: a white page with dark text, at 1:07 a.m. in Safari on iPhone." fetchpriority="high"></picture>
+                            <picture class="after"><source type="image/avif" srcset="/img/web-article-darc-360.avif 360w, /img/web-article-darc-600.avif 600w, /img/web-article-darc-720.avif 720w, /img/web-article-darc-900.avif 900w, /img/web-article-darc-1320.avif 1320w" sizes="(min-width: 768px) 440px, min(400px, 92vw)"><img src="/img/web-article-darc-600.webp" srcset="/img/web-article-darc-360.webp 360w, /img/web-article-darc-600.webp 600w, /img/web-article-darc-720.webp 720w, /img/web-article-darc-900.webp 900w, /img/web-article-darc-1320.webp 1320w" sizes="(min-width: 768px) 440px, min(400px, 92vw)" width="1320" height="2868" alt="The same article with Darc on: a dark background and light text, and the photo of the Bahamas still in its original colours."></picture>
+                            <div class="split-handle" aria-hidden="true"><span class="split-grip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+                            <input class="split-range" type="range" min="6" max="94" step="1" value="50" aria-label="Compare original and Darc">
+                        </div>
+                        <picture class="frame" aria-hidden="true"><source type="image/avif" srcset="/img/frame-iphone-490.avif 490w, /img/frame-iphone-980.avif 980w, /img/frame-iphone-1470.avif 1470w" sizes="(min-width: 768px) 440px, min(400px, 92vw)"><img src="/img/frame-iphone-490.webp" srcset="/img/frame-iphone-490.webp 490w, /img/frame-iphone-980.webp 980w, /img/frame-iphone-1470.webp 1470w" sizes="(min-width: 768px) 440px, min(400px, 92vw)" width="1470" height="3000" alt=""></picture>
+                    </div>
+                    <figcaption>A sample page in Safari on iPhone, captured with and without Darc. Drag to compare.</figcaption>
+                </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="story" aria-labelledby="story-title">
+            <div class="wrap">
+                <h2 class="sr-only" id="story-title">Two directions</h2>
+                <div class="story reveal">
+                    <div class="story-text text">
+                        <h3 class="kicker">1:07 a.m.</h3>
+                        <p>You open a long article in bed. It’s white edge to edge. With Darc it arrives dark: backgrounds, text, borders and buttons recoloured from the page’s own styles, so it looks like the site designed it. The photo in the article keeps its colours.</p>
+                    </div>
+                    <div class="story-media">
+                        <picture class="shot shot-framed"><source type="image/avif" srcset="/img/framed-article-comments-360.avif 360w, /img/framed-article-comments-600.avif 600w, /img/framed-article-comments-900.avif 900w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)"><img src="/img/framed-article-comments-600.webp" srcset="/img/framed-article-comments-360.webp 360w, /img/framed-article-comments-600.webp 600w, /img/framed-article-comments-900.webp 900w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)" width="900" height="1837" alt="The end of the sample article in Safari with Darc at 1:07 a.m.: dark page, light text, a dark comment box and a blue Post comment button." loading="lazy" decoding="async"></picture>
+                    </div>
+                </div>
+                <div class="story story-flip reveal">
+                    <div class="story-text text">
+                        <h3 class="kicker">12:30 p.m.</h3>
+                        <p>A forum you read every day only comes in black, and you are on a bright train. Darc Forever can turn that site light, just that one, and leave everything else alone.</p>
+                    </div>
+                    <div class="story-media">
+                        <figure class="compare">
+                    <div class="compare-labels" aria-hidden="true"><span>Original</span><span>With Darc</span></div>
+                    <div class="device">
+                        <div class="screen">
+                            <picture class="before"><source type="image/avif" srcset="/img/web-forum-original-360.avif 360w, /img/web-forum-original-600.avif 600w, /img/web-forum-original-720.avif 720w, /img/web-forum-original-900.avif 900w, /img/web-forum-original-1320.avif 1320w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)"><img src="/img/web-forum-original-600.webp" srcset="/img/web-forum-original-360.webp 360w, /img/web-forum-original-600.webp 600w, /img/web-forum-original-720.webp 720w, /img/web-forum-original-900.webp 900w, /img/web-forum-original-1320.webp 1320w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)" width="1320" height="2868" alt="A sample forum, Night Shift, that only comes in black." loading="lazy" decoding="async"></picture>
+                            <picture class="after"><source type="image/avif" srcset="/img/web-forum-darc-360.avif 360w, /img/web-forum-darc-600.avif 600w, /img/web-forum-darc-720.avif 720w, /img/web-forum-darc-900.avif 900w, /img/web-forum-darc-1320.avif 1320w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)"><img src="/img/web-forum-darc-600.webp" srcset="/img/web-forum-darc-360.webp 360w, /img/web-forum-darc-600.webp 600w, /img/web-forum-darc-720.webp 720w, /img/web-forum-darc-900.webp 900w, /img/web-forum-darc-1320.webp 1320w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)" width="1320" height="2868" alt="The same forum with Darc Forever's light theme: light grey cards and dark text." loading="lazy" decoding="async"></picture>
+                            <div class="split-handle" aria-hidden="true"><span class="split-grip"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
+                            <input class="split-range" type="range" min="6" max="94" step="1" value="50" aria-label="Compare the forum, original and with Darc’s light theme">
+                        </div>
+                        <picture class="frame" aria-hidden="true"><source type="image/avif" srcset="/img/frame-iphone-490.avif 490w, /img/frame-iphone-980.avif 980w, /img/frame-iphone-1470.avif 1470w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)"><img src="/img/frame-iphone-490.webp" srcset="/img/frame-iphone-490.webp 490w, /img/frame-iphone-980.webp 980w, /img/frame-iphone-1470.webp 1470w" sizes="(min-width: 1024px) 400px, min(380px, 92vw)" width="1470" height="3000" alt=""></picture>
+                    </div>
+                    <figcaption>A dark-only sample forum at 12:30 p.m., captured with and without Darc's light theme.</figcaption>
+                </figure>
+                    </div>
+                </div>
+                <p class="story-note reveal">Darc reads each page as it opens and only changes the ones that need it. A site that already has its own dark theme is left to use it.</p>
+            </div>
+        </section>
+
+        <section class="section" id="how" aria-labelledby="how-title">
+            <div class="wrap">
+                <h2 class="section-head reveal" id="how-title">How it works</h2>
+                <ol class="steps reveal">
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">1</span>
+                        <div>
+                            <h3>Install Darc and open it once.</h3>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">2</span>
+                        <div>
+                            <h3>Turn it on in Safari.</h3>
+                            <p>iPhone and iPad: <span class="path">Settings &gt; Apps &gt; Safari &gt; Extensions &gt; Darc</span>. Turn on Allow Extension, then set Other Websites to Allow.</p>
+                            <p>Mac: <span class="path">Safari &gt; Settings &gt; Extensions</span>, tick Darc, then Edit Websites and set Other Websites to Allow.</p>
+                            <picture class="step-shot"><source type="image/avif" srcset="/img/framed-enable-360.avif 360w, /img/framed-enable-600.avif 600w" sizes="(min-width: 1024px) 280px, 240px"><img src="/img/framed-enable-600.webp" srcset="/img/framed-enable-360.webp 360w, /img/framed-enable-600.webp 600w" sizes="(min-width: 1024px) 280px, 240px" width="600" height="1224" alt="Darc's setup screen, Turn on the extension, showing the Darc switch in Safari's extension settings." loading="lazy" decoding="async"></picture>
+                        </div>
+                    </li>
+                    <li class="step">
+                        <span class="step-num" aria-hidden="true">3</span>
+                        <div>
+                            <h3>Pick a mode.</h3>
+                            <p>System follows your device’s appearance. Dark makes every bright site dark. Off leaves the web alone. Change a single site from Darc’s button in Safari’s toolbar.</p>
+                        </div>
+                    </li>
+                </ol>
+                <p class="aside reveal">The Darc app shows “Darc is on” once it has themed its first page, so you know it worked.</p>
+            </div>
+        </section>
+
+        <section class="section" id="alone" aria-labelledby="alone-title">
+            <div class="wrap alone">
+                <div class="text reveal">
+                    <h2 class="section-head" id="alone-title">What it leaves alone</h2>
+                    <p>Darc changes colours, not content. It steps around the things you should see exactly as the site made them:</p>
+                    <ul class="plain-list">
+                        <li>Photos, video and map tiles, which keep their own colours by default.</li>
+                        <li>Card fields, Apple Pay, PayPal and Stripe forms.</li>
+                        <li>CAPTCHA checks.</li>
+                    </ul>
+                    <p>And if it gets a page wrong, for example text that ends up nearly the same colour as its background, Darc notices and removes everything it added. It tries another way of theming that page, and if none works, it shows the page as the site built it. A week later it gives the site a fresh try.</p>
+                </div>
+                <figure class="alone-figure reveal">
+                    <picture class="alone-media"><source type="image/avif" srcset="/img/web-article-photo-360.avif 360w, /img/web-article-photo-600.avif 600w, /img/web-article-photo-900.avif 900w, /img/web-article-photo-1320.avif 1320w" sizes="(min-width: 1024px) 560px, 92vw"><img src="/img/web-article-photo-600.webp" srcset="/img/web-article-photo-360.webp 360w, /img/web-article-photo-600.webp 600w, /img/web-article-photo-900.webp 900w, /img/web-article-photo-1320.webp 1320w" sizes="(min-width: 1024px) 560px, 92vw" width="1320" height="1420" alt="The top of the sample article with Darc: dark background, and a satellite photo of turquoise sandbanks in its original colours." loading="lazy" decoding="async"></picture>
+                    <figcaption class="small">The sample article with Darc. The satellite photo keeps its colours.</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="section" id="price" aria-labelledby="price-title">
+            <div class="wrap">
                 <div>
-                    <img class="hero-icon" src="/img/app-icon-256.webp" width="88" height="88" alt="Darc app icon">
-                    <p class="eyebrow">Dark &amp; Light Mode for Safari</p>
-                    <h1 id="hero-title">Your web,<br><span class="purple">your way.</span></h1>
-                    <p class="lede">Darc themes websites in Safari in both directions. Bright sites get a real dark theme, and dark-only sites can go light. Every site, the way you want it.</p>
-                    <div class="cta-row">
-                        <a class="badge-link" href="https://apps.apple.com/app/id6819036330">
-                            <img src="/img/app-store-black-en-us.svg" width="162" height="54" alt="Download on the App Store">
-                        </a>
-                        <p class="cta-note">Free to start. iPhone, iPad and Mac.</p>
-                    </div>
-                </div>
-                <img class="hero-art" src="/img/art-browsers-900.webp" srcset="/img/art-browsers-560.webp 560w, /img/art-browsers-900.webp 900w" sizes="(min-width: 900px) 520px, 90vw" width="900" height="822" alt="A stack of browser windows, each one split down the middle: the original bright page on one side and the same page in Darc's dark theme on the other.">
-            </div>
-        </section>
-
-        <section class="section section-alt" id="both-ways" aria-labelledby="ways-title">
-            <div class="container">
-                <div class="section-head">
-                    <p class="kicker">Both directions</p>
-                    <h2 id="ways-title">Dark when you want dark. <span class="purple">Light when you want light.</span></h2>
-                    <p>Most dark mode extensions only go one way. Darc builds a real dark theme for bright pages, and with Darc Forever it also lightens sites that only come in dark.</p>
-                </div>
-                <div class="ways">
-                    <article class="way">
-                        <div class="mini" aria-hidden="true">
-                            <div>
-                                <span class="page-label">Original</span>
-                                <div class="page page-light"><div class="dots"><i></i><i></i><i></i></div><div class="h"></div><div class="l"></div><div class="l s"></div><div class="img"></div></div>
-                            </div>
-                            <span class="mini-arrow">&rarr;</span>
-                            <div>
-                                <span class="page-label">With Darc</span>
-                                <div class="page page-dark"><div class="dots"><i></i><i></i><i></i></div><div class="h"></div><div class="l"></div><div class="l s"></div><div class="img"></div></div>
-                            </div>
+                    <h2 class="section-head reveal" id="price-title">Free, plus one thing you can buy once.</h2>
+                    <div class="price-grid reveal">
+                        <div class="price-col">
+                            <h3>Free, and it stays free</h3>
+                            <p>System, Dark and Off modes. Automatic detection of sites that are already dark. Photo and video protection. Recovery when a page breaks. iCloud sync. Up to 3 site rules.</p>
                         </div>
-                        <h3>Bright sites, made dark</h3>
-                        <p>Backgrounds, text, borders and buttons are recoloured from the page's own styles, so the result looks designed, not inverted. Photos and video keep their colours.</p>
-                    </article>
-                    <article class="way">
-                        <div class="mini" aria-hidden="true">
-                            <div>
-                                <span class="page-label">Original</span>
-                                <div class="page page-dark"><div class="dots"><i></i><i></i><i></i></div><div class="h"></div><div class="l"></div><div class="l s"></div><div class="img"></div></div>
-                            </div>
-                            <span class="mini-arrow">&rarr;</span>
-                            <div>
-                                <span class="page-label">With Darc</span>
-                                <div class="page page-light"><div class="dots"><i></i><i></i><i></i></div><div class="h"></div><div class="l"></div><div class="l s"></div><div class="img"></div></div>
-                            </div>
+                        <div class="price-col forever">
+                            <picture class="forever-moon" aria-hidden="true"><source type="image/avif" srcset="/img/art-moon-240.avif 240w, /img/art-moon-480.avif 480w" sizes="120px"><img src="/img/art-moon-240.webp" srcset="/img/art-moon-240.webp 240w, /img/art-moon-480.webp 480w" sizes="120px" width="240" height="480" alt="" loading="lazy" decoding="async"></picture>
+                            <h3>Darc Forever, one payment</h3>
+                            <p>Light theme for dark-only sites. Dark hours, so sites go dark at the time you choose. True black for OLED screens. Brightness, contrast, saturation and sepia, for every site or just one. Unlimited site rules.</p>
                         </div>
-                        <h3>Dark-only sites, made light</h3>
-                        <p>Some sites never offer a light version. Darc can give them one, for reading in daylight or on a sunny train. Part of Darc Forever.</p>
-                    </article>
+                    </div>
+                    <p class="price-foot reveal">One purchase covers iPhone, iPad and Mac on the same Apple Account. No subscription, no ads, no trial that turns into a bill. The App Store shows the price in your currency. If the purchase ever goes inactive, nothing you set is deleted. It waits until Darc Forever is back.</p>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="features" aria-labelledby="screens-title">
-            <div class="container">
-                <div class="section-head">
-                    <p class="kicker">How it works</p>
-                    <h2 id="screens-title">Set it once. <span class="purple">Then forget it.</span></h2>
-                    <p>Turn on the extension in Safari and pick a mode. Darc checks each page as it opens and only themes the ones that need it.</p>
-                </div>
-                <div class="screens">
-                    <div class="screen">
-                        <figure>
-                            <div class="shot"><img src="/img/shot-mode-600.webp" srcset="/img/shot-mode-360.webp 360w, /img/shot-mode-600.webp 600w" sizes="300px" width="600" height="1304" loading="lazy" alt="The Darc app's Appearance screen with the current mode set to System and the choices System, Dark, Light and Off."></div>
-                        </figure>
-                        <h3>One mode for the whole web</h3>
-                        <p>System follows your device appearance. Dark themes every bright site. Off leaves the web untouched.</p>
-                    </div>
-                    <div class="screen">
-                        <figure>
-                            <div class="shot"><img src="/img/shot-sites-600.webp" srcset="/img/shot-sites-360.webp 360w, /img/shot-sites-600.webp 600w" sizes="300px" width="600" height="1304" loading="lazy" alt="The Sites screen listing per-site exceptions for github.com, nytimes.com, reddit.com and wikipedia.org, each with its own mode."></div>
-                        </figure>
-                        <h3>Rules for the sites you care about</h3>
-                        <p>Keep one site dark, another light, a third untouched. Add a rule from the app or straight from Darc's button in Safari.</p>
-                    </div>
-                    <div class="screen">
-                        <figure>
-                            <div class="shot"><img src="/img/shot-site-600.webp" srcset="/img/shot-site-360.webp 360w, /img/shot-site-600.webp 600w" sizes="300px" width="600" height="1304" loading="lazy" alt="A site detail screen for github.com with its mode and sliders for brightness, contrast, saturation and sepia."></div>
-                        </figure>
-                        <h3>Fine-tuning, down to one site</h3>
-                        <p>Brightness, contrast, saturation and sepia, set for every site at once or for a single one.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-alt" aria-labelledby="features-title">
-            <div class="container">
-                <div class="section-head">
-                    <p class="kicker">Built carefully</p>
-                    <h2 id="features-title">Themes the page. <span class="purple">Leaves what matters alone.</span></h2>
-                </div>
-                <ul class="features">
-                    <li class="feature">
-                        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-8 8"/></svg></div>
-                        <h3>Photos, video and maps protected</h3>
-                        <p>Images, video and map tiles keep their original colours, so a dark theme never turns a photo into a negative.</p>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2.5"/><path d="M3 10h18M7 15h3"/></svg></div>
-                        <h3>Payments and CAPTCHAs untouched</h3>
-                        <p>Card fields, Apple Pay, PayPal and Stripe forms, and CAPTCHA checks are left exactly as the site made them.</p>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
-                        <h3>Recovers if a page breaks</h3>
-                        <p>If theming goes wrong on a page, for example text that becomes hard to read, Darc removes everything it added and the page goes back to how the site built it.</p>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div>
-                        <h3>Works on web apps</h3>
-                        <p>Mail, docs and other single-page apps change their content without reloading. Darc follows along and themes new content as it appears.</p>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-                        <h3>Dark hours</h3>
-                        <p>Pick the hours when the web should be dark, and Darc switches on its own every evening.</p>
-                    </li>
-                    <li class="feature">
-                        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></svg></div>
-                        <h3>True black for OLED</h3>
-                        <p>Pure black backgrounds that look deep on OLED screens and save battery.</p>
-                    </li>
-                </ul>
+        <section class="section" id="devices" aria-labelledby="devices-title">
+            <div class="wrap">
+                <h2 class="sr-only" id="devices-title">On iPhone, iPad and Mac</h2>
+                <figure class="devices reveal">
+                    <picture class="devices-ipad"><source type="image/avif" srcset="/img/framed-ipad-560.avif 560w, /img/framed-ipad-900.avif 900w, /img/framed-ipad-1300.avif 1300w" sizes="(min-width: 768px) 590px, 76vw"><img src="/img/framed-ipad-900.webp" srcset="/img/framed-ipad-560.webp 560w, /img/framed-ipad-900.webp 900w, /img/framed-ipad-1300.webp 1300w" sizes="(min-width: 768px) 590px, 76vw" width="1300" height="1802" alt="Darc on iPad: a sidebar with Appearance, Sites and Help, the current mode System marked Active, and the fine-tuning sliders." loading="lazy" decoding="async"></picture>
+                    <picture class="devices-phone"><source type="image/avif" srcset="/img/framed-dashboard-300.avif 300w, /img/framed-dashboard-600.avif 600w" sizes="(min-width: 768px) 216px, 28vw"><img src="/img/framed-dashboard-600.webp" srcset="/img/framed-dashboard-300.webp 300w, /img/framed-dashboard-600.webp 600w" sizes="(min-width: 768px) 216px, 28vw" width="600" height="1224" alt="Darc on iPhone: the Appearance tab with the mode buttons System, Dark, Light and Off." loading="lazy" decoding="async"></picture>
+                </figure>
+                <p class="devices-caption reveal">The same Darc on iPad and iPhone. Settings and site rules follow you through iCloud, if iCloud is on.</p>
             </div>
         </section>
 
         <section class="section" id="privacy" aria-labelledby="privacy-title">
-            <div class="container trust">
-                <div>
-                    <p class="kicker">About that Safari warning</p>
-                    <h2 id="privacy-title">Safari asks. <span class="purple">Here is the honest answer.</span></h2>
-                    <p>When you turn Darc on, Safari warns that the extension can read and alter web pages, including passwords and other sensitive details. Safari shows that message for every extension that changes how pages look, because it is technically true: to restyle a page, Darc has to read its colours.</p>
-                    <p>What Darc does with that access is small and stays on your device.</p>
-                </div>
-                <div>
-                    <div class="warning-card" role="note" aria-label="What Darc does with website access">
-                        <span class="warn-tag">What Darc does</span>
-                        <p class="warn-title">Reads a page's styles. Changes its colours. That is all.</p>
-                        <p class="warn-body">The work happens inside Safari on your iPhone, iPad or Mac.</p>
-                        <ul class="checks">
-                            <li><strong>No servers.</strong> Darc has nowhere to send your data, and it sends none.</li>
-                            <li><strong>Your browsing stays yours.</strong> Page content and history never leave Safari.</li>
-                            <li><strong>No account, analytics, ads or tracking.</strong> Not in the app, not in the extension.</li>
-                            <li><strong>Your settings, your iCloud.</strong> If iCloud is on, settings and site rules sync through your own account.</li>
-                        </ul>
-                    </div>
-                    <p class="cta-note" style="margin-top: 18px;">The full details are in the <a href="/privacy.html">privacy policy</a>.</p>
+            <div class="wrap">
+                <div class="text reveal">
+                    <h2 class="privacy-line" id="privacy-title">Darc has no servers.</h2>
+                    <p>That is the whole policy in four words, but here is the rest. Darc reads a page’s styles inside Safari, changes its colours, and keeps nothing. There’s no account, no analytics, no ads and no tracking, in the app or the extension. Settings and site rules sync through your own iCloud, if iCloud is on. The App Store privacy label says Data Not Collected.</p>
+                    <p><a href="/privacy.html">Read the privacy policy</a></p>
                 </div>
             </div>
         </section>
 
-        <section class="section section-alt" id="pricing" aria-labelledby="plans-title">
-            <div class="container plans-wrap">
-                <img class="plans-art" src="/img/art-moon-560.webp" srcset="/img/art-moon-360.webp 360w, /img/art-moon-560.webp 560w" sizes="(min-width: 900px) 340px, 220px" width="560" height="1119" loading="lazy" alt="Darc's glowing crescent moon trailing a ribbon of purple light.">
-                <div>
-                    <div class="section-head">
-                        <p class="kicker">Free, then yours forever</p>
-                        <h2 id="plans-title">Pay once. <span class="gold">Keep it for good.</span></h2>
-                        <p>Darc is free to use. Darc Forever is a single purchase that unlocks everything else. No subscription, no ads.</p>
-                    </div>
-                    <div class="plans">
-                        <div class="plan">
-                            <h3>Free</h3>
-                            <p class="plan-sub">Everything you need for dark mode</p>
-                            <ul>
-                                <li>System, Dark and Off modes</li>
-                                <li>Automatic detection of dark sites</li>
-                                <li>Photo and video protection</li>
-                                <li>Recovery if a page breaks</li>
-                                <li>iCloud sync</li>
-                                <li>Up to 3 site rules</li>
-                            </ul>
-                        </div>
-                        <div class="plan plan-forever">
-                            <h3>Darc Forever</h3>
-                            <p class="plan-sub">One-time purchase</p>
-                            <ul>
-                                <li>Light theme for dark-only sites</li>
-                                <li>Unlimited site rules</li>
-                                <li>Fine-tuning for every site or one</li>
-                                <li>True black for OLED</li>
-                                <li>Dark hours</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="plan-note">One purchase covers iPhone, iPad and Mac with the same Apple Account. The price is shown in the App Store in your currency.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" aria-labelledby="devices-title">
-            <div class="container devices">
-                <div>
-                    <p class="kicker">iPhone, iPad and Mac</p>
-                    <h2 id="devices-title">Wherever you use <span class="purple">Safari.</span></h2>
-                    <p class="lede" style="font-size: 1.1rem;">Darc runs in Safari on iPhone, iPad and Mac. Your settings and site rules follow you through iCloud, so a site you set to dark on your phone is dark on your Mac too.</p>
-                </div>
-                <div class="ipad">
-                    <img src="/img/shot-ipad-900.webp" srcset="/img/shot-ipad-560.webp 560w, /img/shot-ipad-900.webp 900w" sizes="(min-width: 860px) 560px, 90vw" width="900" height="835" loading="lazy" alt="Darc on iPad, with a sidebar for Appearance, Sites and Help next to the current mode and fine-tuning controls.">
-                </div>
-            </div>
-        </section>
-
-        <section class="section section-alt" id="faq" aria-labelledby="faq-title">
-            <div class="container">
-                <div class="section-head">
-                    <p class="kicker">Questions</p>
-                    <h2 id="faq-title">Good to know</h2>
-                </div>
+        <section class="section" id="questions" aria-labelledby="questions-title">
+            <div class="wrap">
+                <h2 class="section-head reveal" id="questions-title">Questions</h2>
                 <div class="faq">
                     <details>
-                        <summary>Why does Darc need access to all websites?</summary>
-                        <div><p>To restyle a page, Darc has to read its colours, so Safari asks for access on each site where it runs. Everything happens on your device. Page content and browsing history never leave Safari, and Darc has no servers to send them to.</p></div>
+                        <summary>Safari says Darc “can read and alter webpages, including passwords”. Should I worry?</summary>
+                        <div class="answer"><p>Safari shows that warning for every extension that changes how pages look, because to recolour a page an extension has to read it. Darc reads colours and styles on your device and sends nothing anywhere. It has no server to send to. If you prefer, allow it only on the sites you choose.</p></div>
                     </details>
                     <details>
-                        <summary>How is this different from Safari's own dark mode?</summary>
-                        <div><p>Safari follows each website's own design. If a site has no dark version, it stays bright. Darc builds a dark theme for sites that do not have one, and with Darc Forever it builds a light theme for sites that only come in dark.</p></div>
+                        <summary>A site looks broken. What now?</summary>
+                        <div class="answer"><p>Tap Darc’s button in Safari’s toolbar. Reset site clears that site’s rule. Disable for this site leaves it untouched from now on. Report issue opens an email with the site’s name, the mode and your Darc version. Nothing is sent unless you press send. <a href="/support.html#site-looks-wrong">More on the support page</a>.</p></div>
                     </details>
                     <details>
-                        <summary>What does System mode do?</summary>
-                        <div><p>It follows your device appearance. When your iPhone, iPad or Mac switches to Dark Mode, bright sites turn dark. In light appearance, sites keep their own look. With Darc Forever, dark-only sites are lightened as well, and you can set dark hours instead.</p></div>
+                        <summary>Will my photos look like negatives?</summary>
+                        <div class="answer"><p>They shouldn’t. Darc recolours backgrounds and text from the page’s own styles and, by default, leaves images, video and maps in their original colours. On the rare page it can’t read that way, it falls back to a colour filter and shields photos from it. If one still looks wrong, Report issue in Darc’s menu tells me which site. With Darc Forever you can also dim photos a little on a site you read at night.</p></div>
                     </details>
                     <details>
-                        <summary>A site looks wrong. What can I do?</summary>
-                        <div><p>Tap Darc's button in Safari's toolbar. <strong>Reset site</strong> removes that site's rule so it follows your global settings again, <strong>Disable for this site</strong> leaves it untouched from then on, and <strong>Report issue</strong> opens an email to us with the site's name so we can look at it. More on the <a href="/support.html#site-looks-wrong">support page</a>.</p></div>
+                        <summary>Will it slow pages down?</summary>
+                        <div class="answer"><p>Darc gives itself 8 milliseconds at a time on a page, then steps back. If a busy page keeps it waiting, it backs off for longer, and in the end stops following that page’s changes rather than taking frames from it.</p></div>
                     </details>
                     <details>
-                        <summary>Why do I see a short white flash sometimes?</summary>
-                        <div><p>Safari paints its own white placeholder before a page exists, and no extension can restyle it. The page itself is themed from its first frame.</p></div>
+                        <summary>Why does a page sometimes flash white?</summary>
+                        <div class="answer"><p>Safari paints its own white placeholder before the page exists, and no extension can reach it. After that, Darc darkens the page as early as Safari lets it run. On a site you have opened before, it remembers the choice and starts dark straight away.</p></div>
+                    </details>
+                    <details>
+                        <summary>Do I have to pay again on my Mac or iPad?</summary>
+                        <div class="answer"><p>No. One purchase, all three, same Apple Account. On a new device use Restore Purchases in Darc’s Help tab.</p></div>
                     </details>
                     <details>
                         <summary>Is it a subscription?</summary>
-                        <div><p>No. Darc is free to use, and Darc Forever is a one-time purchase. There are no ads either way.</p></div>
+                        <div class="answer"><p>No. Darc is free to use, with one optional purchase that you pay once. The App Store shows its price in your currency.</p></div>
                     </details>
                     <details>
-                        <summary>Do I need to buy it again on my Mac or iPad?</summary>
-                        <div><p>No. One purchase unlocks Darc Forever on iPhone, iPad and Mac signed in with the same Apple Account. Use Restore Purchases in the app's Help tab if it does not show up right away.</p></div>
+                        <summary>Is Darc in German?</summary>
+                        <div class="answer"><p>Yes. Darc launches in 45 languages, German included, and follows your device’s language.</p></div>
+                    </details>
+                    <details>
+                        <summary>Which devices?</summary>
+                        <div class="answer"><p>iPhone and iPad with iOS 18 or later, and Macs with macOS 15 or later.</p></div>
                     </details>
                 </div>
             </div>
         </section>
 
-        <section class="section final" aria-labelledby="final-title">
-            <div class="container">
-                <img class="hero-icon" src="/img/app-icon-256.webp" width="88" height="88" alt="" loading="lazy">
-                <h2 id="final-title">Make the web <span class="purple">yours.</span></h2>
-                <p>Free on the App Store for iPhone, iPad and Mac.</p>
-                <div class="cta-row">
-                    <a class="badge-link" href="https://apps.apple.com/app/id6819036330">
-                        <img src="/img/app-store-black-en-us.svg" width="162" height="54" alt="Download on the App Store">
-                    </a>
-                </div>
+        <section class="closing" aria-labelledby="closing-title">
+            <div class="wrap">
+                <h2 id="closing-title">Turn the lights down tonight.</h2>
+                <a class="badge" href="https://apps.apple.com/app/id6819036330"><img src="/img/app-store-black-en-us.svg" width="135" height="45" alt="Download Darc on the App Store"></a>
+                <p class="small">Free on iPhone, iPad and Mac.</p>
             </div>
         </section>
     </main>
 
     <!-- build:footer -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <a class="brand" href="/" aria-label="Darc home">
-                    <img src="/img/app-icon-128.webp" width="28" height="28" alt="">
-                    <span>Darc</span>
-                </a>
-                <nav aria-label="Footer">
-                    <ul class="footer-links">
-                        <li><a href="/support.html">Support</a></li>
-                        <li><a href="/privacy.html">Privacy Policy</a></li>
-                        <li><a href="/terms.html">Terms of Use</a></li>
-                        <li><a href="/support.html#acknowledgements">Acknowledgements</a></li>
-                        <li><a href="mailto:iosallapps@icloud.com">iosallapps@icloud.com</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="wrap">
+            <p class="footer-maker">Darc is made by Darius Cirjan, one person. Questions go straight to me: <a href="mailto:iosallapps@icloud.com">iosallapps@icloud.com</a>.</p>
+            <nav aria-label="Footer">
+                <ul class="footer-links">
+                    <li><a href="/#how">How it works</a></li>
+                    <li><a href="/#price">Price</a></li>
+                    <li><a href="/#questions">Questions</a></li>
+                    <li><a href="/support.html">Support</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                    <li><a href="/support.html#acknowledgements">Acknowledgements</a></li>
+                </ul>
+            </nav>
             <div class="footer-small">
-                <p>Darc's theming engine includes <a href="https://github.com/darkreader/darkreader">Dark Reader</a>, Copyright (c) 2026 Dark Reader Ltd., used under the <a href="/support.html#acknowledgements">MIT License</a>.</p>
-                <p>Darc is made by Darius Cirjan. Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+                <p>Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
                 <p>&copy; 2026 Darius Cirjan</p>
             </div>
         </div>
     </footer>
     <!-- /build:footer -->
+    <script src="/site.js?v=4" defer></script>
 </body>
 </html>

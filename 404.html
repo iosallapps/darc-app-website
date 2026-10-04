@@ -7,7 +7,7 @@
     <meta name="apple-itunes-app" content="app-id=6819036330">
     <title>Page not found | Darc</title>
     <meta name="description" content="This page does not exist. Go back to Darc, the dark and light mode extension for Safari.">
-    <meta name="theme-color" content="#0D0D17">
+    <meta name="theme-color" content="#0B0A10">
     <meta name="color-scheme" content="dark">
     <meta name="robots" content="noindex">
     <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
     <meta property="og:image" content="https://darcapp.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="The Darc app icon, a glowing purple crescent around a warm golden light, next to the words Your web, your way.">
+    <meta property="og:image:alt" content="The Darc app icon, a glowing violet crescent, next to the words Dark when it’s late. Light when it’s not.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Page not found | Darc">
     <meta name="twitter:description" content="This page does not exist. Go back to Darc, the dark and light mode extension for Safari.">
@@ -27,7 +27,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="/styles.css?v=1">
+    <link rel="stylesheet" href="/styles.css?v=4">
+    <script>document.documentElement.classList.add("js")</script>
     <!-- /build:head -->
 </head>
 <body>
@@ -35,54 +36,50 @@
 
     <!-- build:header -->
     <header class="site-header">
-        <div class="container bar">
-            <a class="brand" href="/" aria-label="Darc home">
-                <img src="/img/app-icon-128.webp" width="34" height="34" alt="">
+        <div class="wrap bar">
+            <a class="brand" href="/" aria-label="Darc, home">
+                <picture><source type="image/avif" srcset="/img/app-icon-64.avif 1x, /img/app-icon-128.avif 2x"><img src="/img/app-icon-64.webp" srcset="/img/app-icon-64.webp 1x, /img/app-icon-128.webp 2x" width="32" height="32" alt=""></picture>
                 <span>Darc</span>
             </a>
-            <nav aria-label="Main">
+            <nav class="nav" aria-label="Main">
                 <ul class="nav-links">
-                    <li class="nav-hide"><a href="/#features">Features</a></li>
-                    <li class="nav-hide"><a href="/#privacy">Privacy</a></li>
-                    <li class="nav-hide"><a href="/#faq">FAQ</a></li>
-                    <li class="nav-hide"><a href="/support.html">Support</a></li>
-                    <li><a class="nav-cta" href="https://apps.apple.com/app/id6819036330">Get Darc</a></li>
+                    <li><a href="/#how">How it works</a></li>
+                    <li><a href="/#price">Price</a></li>
+                    <li><a href="/#privacy">Privacy</a></li>
+                    <li><a href="/#questions">Questions</a></li>
                 </ul>
             </nav>
+            <a class="badge badge-nav" href="https://apps.apple.com/app/id6819036330"><img src="/img/app-store-black-en-us.svg" width="120" height="40" alt="Download Darc on the App Store"></a>
         </div>
     </header>
     <!-- /build:header -->
 
     <main id="main" class="notfound">
         <div class="container">
-            <img class="hero-icon" src="/img/app-icon-256.webp" width="88" height="88" alt="" style="margin: 0 auto 22px;">
-            <h1>Lost in the <span class="purple">dark.</span></h1>
-            <p>This page does not exist. It may have moved, or the link may be mistyped.</p>
-            <p><a href="/">Go to the home page</a> or <a href="/support.html">visit support</a>.</p>
+            <picture><source type="image/avif" srcset="/img/app-icon-128.avif 1x, /img/app-icon-256.avif 2x"><img src="/img/app-icon-128.webp" srcset="/img/app-icon-128.webp 1x, /img/app-icon-256.webp 2x" width="88" height="88" alt=""></picture>
+            <h1>This page went dark for good.</h1>
+            <p>It doesn’t exist, or it moved.</p>
+            <p><a href="/">Back to darcapp.com</a></p>
         </div>
     </main>
 
     <!-- build:footer -->
     <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <a class="brand" href="/" aria-label="Darc home">
-                    <img src="/img/app-icon-128.webp" width="28" height="28" alt="">
-                    <span>Darc</span>
-                </a>
-                <nav aria-label="Footer">
-                    <ul class="footer-links">
-                        <li><a href="/support.html">Support</a></li>
-                        <li><a href="/privacy.html">Privacy Policy</a></li>
-                        <li><a href="/terms.html">Terms of Use</a></li>
-                        <li><a href="/support.html#acknowledgements">Acknowledgements</a></li>
-                        <li><a href="mailto:iosallapps@icloud.com">iosallapps@icloud.com</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div class="wrap">
+            <p class="footer-maker">Darc is made by Darius Cirjan, one person. Questions go straight to me: <a href="mailto:iosallapps@icloud.com">iosallapps@icloud.com</a>.</p>
+            <nav aria-label="Footer">
+                <ul class="footer-links">
+                    <li><a href="/#how">How it works</a></li>
+                    <li><a href="/#price">Price</a></li>
+                    <li><a href="/#questions">Questions</a></li>
+                    <li><a href="/support.html">Support</a></li>
+                    <li><a href="/privacy.html">Privacy</a></li>
+                    <li><a href="/terms.html">Terms</a></li>
+                    <li><a href="/support.html#acknowledgements">Acknowledgements</a></li>
+                </ul>
+            </nav>
             <div class="footer-small">
-                <p>Darc's theming engine includes <a href="https://github.com/darkreader/darkreader">Dark Reader</a>, Copyright (c) 2026 Dark Reader Ltd., used under the <a href="/support.html#acknowledgements">MIT License</a>.</p>
-                <p>Darc is made by Darius Cirjan. Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+                <p>Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
                 <p>&copy; 2026 Darius Cirjan</p>
             </div>
         </div>
