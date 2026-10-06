@@ -156,7 +156,7 @@ def build_overlay():
 
 
 def build_moon():
-    """The paywall's moon ribbon, used small and faded behind the Darc Forever heading."""
+    """The paywall's moon ribbon, used small and faded behind the second price column."""
     moon = clean(Image.open(MOON)).convert("RGBA").crop((0, 100, 851, 1800))
     for width in (240, 480):
         height = round(moon.height * width / moon.width)

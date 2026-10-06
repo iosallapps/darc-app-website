@@ -28,7 +28,7 @@ PAGES = {
     "support.html": (
         "Help with Darc",
         "Turn on the Darc extension in Safari on iPhone, iPad and Mac, fix a site that looks wrong, "
-        "restore your purchase and get in touch.",
+        "install it on your other devices and get in touch.",
         "support.html",
     ),
     "privacy.html": (
@@ -39,7 +39,7 @@ PAGES = {
     ),
     "terms.html": (
         "Terms of Use | Darc",
-        "The terms for using Darc and the Darc Forever one-time purchase.",
+        "The terms for using Darc, a paid app you buy once in the App Store.",
         "terms.html",
     ),
     "404.html": (
