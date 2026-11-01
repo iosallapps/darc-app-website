@@ -22,7 +22,7 @@ PAGES = {
     "index.html": (
         "Darc: Dark and Light Mode for Safari",
         "Darc is a Safari extension that gives bright websites a real dark theme and dark-only "
-        "websites a light one, on iPhone, iPad and Mac. No account, no servers, no subscription.",
+        "websites a light one, on iPhone, iPad and Mac. Free to use, your browsing never leaves Safari.",
         "",
     ),
     "support.html": (
@@ -33,13 +33,13 @@ PAGES = {
     ),
     "privacy.html": (
         "Privacy Policy | Darc",
-        "Darc has no account, no analytics, no ads and no servers. Pages are restyled on your device "
-        "and your browsing is never sent to us.",
+        "How Darc handles your data: pages are restyled on your device and your browsing never leaves "
+        "Safari. The free app uses Google and RevenueCat for ads, analytics, crash reports and purchases.",
         "privacy.html",
     ),
     "terms.html": (
         "Terms of Use | Darc",
-        "The terms for using Darc, a paid app you buy once in the App Store.",
+        "The terms for using Darc: the free version, ads, subscriptions, the lifetime unlock and what paid-app buyers keep.",
         "terms.html",
     ),
     "404.html": (
