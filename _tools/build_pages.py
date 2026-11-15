@@ -14,7 +14,7 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://darcapp.com/"
 APP_STORE = "https://apps.apple.com/app/id6819036330"
 APP_ID = "6819036330"
-STYLE_VERSION = "5"
+STYLE_VERSION = "6"
 FORBIDDEN = ["\u2014", "\u2013", "&mdash;", "&ndash;", "&#8212;", "&#8211;"]
 
 # file -> (title, description, canonical path)
@@ -111,6 +111,7 @@ FOOTER = """<footer class="site-footer">
             <div class="footer-small">
                 <p>Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
                 <p>&copy; 2026 Visto Apps, the brand of Darius Cirjan</p>
+                <p>Made by <a href="https://vistoapps.com">Visto Apps</a></p>
             </div>
         </div>
     </footer>"""
