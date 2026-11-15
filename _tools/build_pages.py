@@ -15,7 +15,7 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://darcapp.com/"
 APP_STORE = "https://apps.apple.com/app/id6819036330"
 APP_ID = "6819036330"
-STYLE_VERSION = "8"
+STYLE_VERSION = "20261116s"
 FORBIDDEN = ["\u2014", "\u2013", "&mdash;", "&ndash;", "&#8212;", "&#8211;"]
 
 # file -> (title, description, canonical path)
@@ -55,7 +55,7 @@ HEAD = """<meta charset="UTF-8">
     <meta name="apple-itunes-app" content="app-id={app_id}">
     <title>{title}</title>
     <meta name="description" content="{description}">
-    <meta name="theme-color" content="#0a0614">
+    <meta name="theme-color" content="#2c1754" data-scrolled="#0a0614">
     <meta name="color-scheme" content="dark">{canonical}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Darc">
