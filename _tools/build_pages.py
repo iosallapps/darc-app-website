@@ -6,6 +6,7 @@ Each page keeps its own content. The blocks between <!-- build:NAME --> and <!--
 are regenerated here, so a nav or footer change is made once. The script also refuses to run
 if any page contains an em or en dash.
 """
+import json
 import os
 import re
 import sys
@@ -14,32 +15,32 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://darcapp.com/"
 APP_STORE = "https://apps.apple.com/app/id6819036330"
 APP_ID = "6819036330"
-STYLE_VERSION = "7"
+STYLE_VERSION = "8"
 FORBIDDEN = ["\u2014", "\u2013", "&mdash;", "&ndash;", "&#8212;", "&#8211;"]
 
 # file -> (title, description, canonical path)
 PAGES = {
     "index.html": (
-        "Darc: Dark and Light Mode for Safari",
-        "Darc is a Safari extension that gives bright websites a real dark theme and dark-only "
-        "websites a light one, on iPhone, iPad and Mac. Free to use, your browsing never leaves Safari.",
+        "Darc: Dark Mode for Safari, Free on iPhone and Mac",
+        "Darc is a free Safari extension that gives bright websites a real dark theme and dark-only "
+        "websites a light one, on iPhone, iPad and Mac. No account needed.",
         "",
     ),
     "support.html": (
-        "Help with Darc",
+        "Darc Help: Turn On Dark Mode in Safari",
         "Turn on the Darc extension in Safari on iPhone, iPad and Mac, fix a site that looks wrong, "
         "install it on your other devices and get in touch.",
         "support.html",
     ),
     "privacy.html": (
-        "Privacy Policy | Darc",
+        "Darc Privacy Policy: Safari Dark Mode App",
         "How Darc handles your data: pages are restyled on your device and your browsing never leaves "
-        "Safari. The free app uses Google and RevenueCat for ads, analytics, crash reports and purchases.",
+        "Safari. Services used by the free app, consent choices and your rights.",
         "privacy.html",
     ),
     "terms.html": (
-        "Terms of Use | Darc",
-        "The terms for using Darc: the free version, ads, subscriptions, the lifetime unlock and what paid-app buyers keep.",
+        "Darc Terms of Use: Safari Dark Mode App",
+        "The terms for using Darc, the free dark mode extension for Safari: the free version, ads, the optional unlock, subscriptions, refunds and what paid-app buyers keep.",
         "terms.html",
     ),
     "404.html": (
@@ -54,10 +55,11 @@ HEAD = """<meta charset="UTF-8">
     <meta name="apple-itunes-app" content="app-id={app_id}">
     <title>{title}</title>
     <meta name="description" content="{description}">
-    <meta name="theme-color" content="#0B0A10">
+    <meta name="theme-color" content="#0a0614">
     <meta name="color-scheme" content="dark">{canonical}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Darc">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="{url}">
     <meta property="og:title" content="{title}">
     <meta property="og:description" content="{description}">
@@ -73,6 +75,8 @@ HEAD = """<meta charset="UTF-8">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/styles.css?v={style_version}">
     <script>document.documentElement.classList.add("js")</script>"""
 
@@ -121,11 +125,67 @@ FOOTER = """<footer class="site-footer">
 def render_head(page):
     title, description, path = PAGES[page]
     url = DOMAIN + (path or "")
-    canonical = "" if path is None else f'\n    <link rel="canonical" href="{url}">'
+    canonical = "" if path is None else f'\n    <link rel="canonical" href="{url}">\n    <link rel="alternate" hreflang="en" href="{url}">\n    <link rel="alternate" hreflang="x-default" href="{url}">'
     if path is None:
         canonical = '\n    <meta name="robots" content="noindex">'
-    return HEAD.format(app_id=APP_ID, title=title, description=description, canonical=canonical,
+    head = HEAD.format(app_id=APP_ID, title=title, description=description, canonical=canonical,
                        url=url, domain=DOMAIN, style_version=STYLE_VERSION)
+    return head + jsonld(page, title, description, url)
+
+
+ORG = {"@type": "Organization", "name": "Visto Apps", "url": "https://vistoapps.com",
+       "founder": {"@type": "Person", "name": "Darius Cirjan"}}
+
+
+def faq_entities():
+    with open(os.path.join(SITE, "index.html"), encoding="utf-8") as handle:
+        source = handle.read()
+    out = []
+    for summary, answer in re.findall(r"<summary>(.*?)</summary>\s*<div class=\"answer\">(.*?)</div>", source, re.S):
+        text = re.sub(r"<[^>]+>", "", answer)
+        text = text.replace("&amp;", "&").strip()
+        out.append({"@type": "Question", "name": summary.strip(), "acceptedAnswer": {"@type": "Answer", "text": text}})
+    return out
+
+
+def jsonld(page, title, description, url):
+    graph = []
+    if page == "index.html":
+        graph.append({"@context": "https://schema.org", "@type": "WebSite", "name": "Darc", "url": DOMAIN,
+                      "publisher": ORG, "inLanguage": "en"})
+        graph.append({
+            "@context": "https://schema.org", "@type": "MobileApplication", "name": "Darc: Dark Mode for Safari",
+            "description": description, "url": DOMAIN, "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "iOS 18.0 or later, iPadOS 18.0 or later, macOS 15.0 or later",
+            "downloadUrl": APP_STORE, "installUrl": APP_STORE, "image": DOMAIN + "img/app-icon-256.webp",
+            "screenshot": [DOMAIN + "img/framed-dashboard-600.webp", DOMAIN + "img/framed-enable-600.webp",
+                           DOMAIN + "img/popup-menu-680.webp"],
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+            "author": ORG, "publisher": ORG, "inLanguage": "en"})
+        graph.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_entities()})
+    elif page != "404.html":
+        graph.append({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Darc", "item": DOMAIN},
+            {"@type": "ListItem", "position": 2, "name": title, "item": url}]})
+    if not graph:
+        return ""
+    body = json.dumps(graph, ensure_ascii=False, indent=2).replace("</", "<\\/")
+    return '\n    <script type="application/ld+json">\n' + body + "\n    </script>"
+
+
+def write_sitemap(today):
+    rows = []
+    for page, (title, description, path) in PAGES.items():
+        if path is None:
+            continue
+        url = DOMAIN + path
+        rows.append(f'    <url><loc>{url}</loc><lastmod>{today}</lastmod>'
+                    f'<xhtml:link rel="alternate" hreflang="en" href="{url}"/>'
+                    f'<xhtml:link rel="alternate" hreflang="x-default" href="{url}"/></url>')
+    xml = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+           'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(rows) + "\n</urlset>\n")
+    with open(os.path.join(SITE, "sitemap.xml"), "w", encoding="utf-8") as handle:
+        handle.write(xml)
 
 
 def replace_block(source, name, body):
@@ -150,6 +210,7 @@ def main():
         with open(path, "w", encoding="utf-8") as handle:
             handle.write(source)
         print("built", page)
+    write_sitemap("2026-11-15")
 
 
 if __name__ == "__main__":

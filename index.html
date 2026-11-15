@@ -5,45 +5,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="apple-itunes-app" content="app-id=6819036330">
-    <title>Darc: Dark and Light Mode for Safari</title>
-    <meta name="description" content="Darc is a Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. Free to use, your browsing never leaves Safari.">
-    <meta name="theme-color" content="#0B0A10">
+    <title>Darc: Dark Mode for Safari, Free on iPhone and Mac</title>
+    <meta name="description" content="Darc is a free Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. No account needed.">
+    <meta name="theme-color" content="#0a0614">
     <meta name="color-scheme" content="dark">
     <link rel="canonical" href="https://darcapp.com/">
+    <link rel="alternate" hreflang="en" href="https://darcapp.com/">
+    <link rel="alternate" hreflang="x-default" href="https://darcapp.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Darc">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://darcapp.com/">
-    <meta property="og:title" content="Darc: Dark and Light Mode for Safari">
-    <meta property="og:description" content="Darc is a Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. Free to use, your browsing never leaves Safari.">
+    <meta property="og:title" content="Darc: Dark Mode for Safari, Free on iPhone and Mac">
+    <meta property="og:description" content="Darc is a free Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. No account needed.">
     <meta property="og:image" content="https://darcapp.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="The Darc app icon, a glowing violet crescent, next to the words Dark when it’s late. Light when it’s not.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Darc: Dark and Light Mode for Safari">
-    <meta name="twitter:description" content="Darc is a Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. Free to use, your browsing never leaves Safari.">
+    <meta name="twitter:title" content="Darc: Dark Mode for Safari, Free on iPhone and Mac">
+    <meta name="twitter:description" content="Darc is a free Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. No account needed.">
     <meta name="twitter:image" content="https://darcapp.com/og-image.png">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="stylesheet" href="/styles.css?v=7">
+    <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles.css?v=8">
     <script>document.documentElement.classList.add("js")</script>
+    <script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Darc",
+    "url": "https://darcapp.com/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Visto Apps",
+      "url": "https://vistoapps.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Darius Cirjan"
+      }
+    },
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Darc: Dark Mode for Safari",
+    "description": "Darc is a free Safari extension that gives bright websites a real dark theme and dark-only websites a light one, on iPhone, iPad and Mac. No account needed.",
+    "url": "https://darcapp.com/",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "iOS 18.0 or later, iPadOS 18.0 or later, macOS 15.0 or later",
+    "downloadUrl": "https://apps.apple.com/app/id6819036330",
+    "installUrl": "https://apps.apple.com/app/id6819036330",
+    "image": "https://darcapp.com/img/app-icon-256.webp",
+    "screenshot": [
+      "https://darcapp.com/img/framed-dashboard-600.webp",
+      "https://darcapp.com/img/framed-enable-600.webp",
+      "https://darcapp.com/img/popup-menu-680.webp"
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Visto Apps",
+      "url": "https://vistoapps.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Darius Cirjan"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Visto Apps",
+      "url": "https://vistoapps.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Darius Cirjan"
+      }
+    },
+    "inLanguage": "en"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Safari says Darc “can read and alter webpages, including passwords”. Should I worry?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Safari shows that warning for every extension that changes how pages look, because to recolour a page an extension has to read it. Darc reads colours and styles on your device and sends nothing anywhere. It has no server to send to. If you prefer, allow it only on the sites you choose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A site looks broken. What now?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tap Darc’s button in Safari’s toolbar. Off under the site’s name leaves that site untouched. Reset site clears its rule. Report issue opens an email with the site’s name, the mode and your Darc version. Nothing is sent unless you press send. More on the support page."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my photos look like negatives?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "They shouldn’t. Darc recolours backgrounds and text from the page’s own styles and, by default, leaves images, video and maps in their original colours. On the rare page it can’t read that way, it falls back to a colour filter and shields photos from it. If one still looks wrong, Report issue in Darc’s menu tells me which site. With the unlock, you can also dim photos a little on a site you read at night."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will it slow pages down?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Darc gives itself 8 milliseconds at a time on a page, then steps back. If a busy page keeps it waiting, it backs off for longer, and in the end stops following that page’s changes rather than taking frames from it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does a page sometimes flash white?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Safari paints its own white placeholder before the page exists, and no extension can reach it. After that, Darc darkens the page as early as Safari lets it run. On a site you have opened before, it remembers the choice and starts dark straight away."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I have to pay again on my Mac or iPad?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. The unlock belongs to your Apple Account and covers iPhone, iPad and Mac. On another device, download Darc free from the App Store and tap Restore Purchases in the Help tab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Darc free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every mode works on every site for free, with up to 3 site rules. The unlock adds the rest and removes ads, as a weekly or monthly subscription that renews until you cancel, or a one-time lifetime purchase. The app shows each price in your currency before you buy."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "I bought Darc when it was paid. Do I lose anything?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. If you bought Darc while it was a paid app, you keep every feature on iPhone, iPad and Mac, with no ads, without paying again. Darc recognises your purchase from Apple’s record of your download. If a device does not show it, tap Restore Purchases in the Help tab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Darc in German?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Darc launches in 45 languages, German included, and follows your device’s language."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which devices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "iPhone and iPad with iOS 18 or later, and Macs with macOS 15 or later."
+        }
+      }
+    ]
+  }
+]
+    </script>
     <!-- /build:head -->
     <link rel="preload" as="image" type="image/avif" imagesrcset="/img/web-article-original-360.avif 360w, /img/web-article-original-600.avif 600w, /img/web-article-original-720.avif 720w, /img/web-article-original-900.avif 900w, /img/web-article-original-1320.avif 1320w" imagesizes="(min-width: 768px) 440px, min(400px, 92vw)">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Darc",
-      "applicationCategory": "UtilitiesApplication",
-      "operatingSystem": "iOS 18.0 or later, iPadOS 18.0 or later, macOS 15.0 or later",
-      "description": "A Safari extension that gives bright websites a real dark theme and dark-only websites a light one.",
-      "url": "https://darcapp.com/",
-      "downloadUrl": "https://apps.apple.com/app/id6819036330",
-      "author": { "@type": "Organization", "name": "Visto Apps", "url": "https://vistoapps.com" }
-    }
-    </script>
 </head>
 <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -72,7 +211,7 @@
         <section class="hero" aria-labelledby="hero-title">
             <div class="wrap hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow">Safari extension for iPhone, iPad and Mac</p>
+                    <p class="eyebrow">Dark mode Safari extension for iPhone, iPad and Mac</p>
                     <h1 id="hero-title"><span class="line">Dark when it’s late.</span> <span class="line">Light when it’s not.</span></h1>
                     <p class="hero-sub">Darc gives bright websites a real dark theme, and gives dark-only websites a light one. It runs inside Safari and nowhere else.</p>
                     <div class="hero-cta">

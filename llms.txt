@@ -1,0 +1,14 @@
+# Darc
+
+Darc is a Safari extension, with a companion app, for iPhone, iPad and Mac. It gives bright websites a real dark theme and dark-only websites a light theme, can follow the device appearance or a schedule, and lets you set a mode per site. It works only inside Safari. The extension sends no page content, addresses or browsing history anywhere.
+
+- Platforms: iOS 18.0 or later, iPadOS 18.0 or later, macOS 15.0 or later
+- Price model: free to use, with an optional unlock bought in the App Store (weekly or monthly subscription, or one-time lifetime purchase). People who bought Darc when it was a paid app keep every feature.
+- App Store: https://apps.apple.com/app/id6819036330
+- Maker: Visto Apps, the brand of Darius Cirjan (https://vistoapps.com), contact iosallapps@gmail.com
+
+## Pages
+- Home: https://darcapp.com/
+- Help and setup: https://darcapp.com/support.html
+- Privacy Policy: https://darcapp.com/privacy.html
+- Terms of Use: https://darcapp.com/terms.html
