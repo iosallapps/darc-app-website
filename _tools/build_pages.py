@@ -14,7 +14,7 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://darcapp.com/"
 APP_STORE = "https://apps.apple.com/app/id6819036330"
 APP_ID = "6819036330"
-STYLE_VERSION = "4"
+STYLE_VERSION = "5"
 FORBIDDEN = ["\u2014", "\u2013", "&mdash;", "&ndash;", "&#8212;", "&#8211;"]
 
 # file -> (title, description, canonical path)
@@ -22,7 +22,7 @@ PAGES = {
     "index.html": (
         "Darc: Dark and Light Mode for Safari",
         "Darc is a Safari extension that gives bright websites a real dark theme and dark-only "
-        "websites a light one, on iPhone, iPad and Mac. No account, no servers, no subscription.",
+        "websites a light one, on iPhone, iPad and Mac. No account, and your browsing never leaves your device.",
         "",
     ),
     "support.html": (
@@ -33,13 +33,13 @@ PAGES = {
     ),
     "privacy.html": (
         "Privacy Policy | Darc",
-        "Darc has no account, no analytics, no ads and no servers. Pages are restyled on your device "
-        "and your browsing is never sent to us.",
+        "What Darc and its Safari extension do with your data: pages are restyled on your device and "
+        "your browsing is never sent to us. Services, consent and your rights.",
         "privacy.html",
     ),
     "terms.html": (
         "Terms of Use | Darc",
-        "The terms for using Darc, a paid app you buy once in the App Store.",
+        "The terms for using Darc, free to use with an optional unlock bought in the App Store.",
         "terms.html",
     ),
     "404.html": (
@@ -96,7 +96,7 @@ HEADER = """<header class="site-header">
 
 FOOTER = """<footer class="site-footer">
         <div class="wrap">
-            <p class="footer-maker">Darc is made by Darius Cirjan, one person. Questions go straight to me: <a href="mailto:iosallapps@icloud.com">iosallapps@icloud.com</a>.</p>
+            <p class="footer-maker">Darc is made by Visto Apps, the brand of Darius Cirjan. Questions go straight to us: <a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a>.</p>
             <nav aria-label="Footer">
                 <ul class="footer-links">
                     <li><a href="/#how">How it works</a></li>
@@ -110,7 +110,7 @@ FOOTER = """<footer class="site-footer">
             </nav>
             <div class="footer-small">
                 <p>Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
-                <p>&copy; 2026 Darius Cirjan</p>
+                <p>&copy; 2026 Visto Apps, the brand of Darius Cirjan</p>
             </div>
         </div>
     </footer>"""

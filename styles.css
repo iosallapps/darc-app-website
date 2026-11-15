@@ -602,3 +602,24 @@ p:last-child { margin-bottom: 0; }
     white-space: nowrap;
     border: 0;
 }
+
+/* Generated legal pages (privacy, terms) */
+
+.doc .last-updated { color: var(--muted); font-size: 0.875rem; margin-bottom: 24px; }
+.legal-toc { margin: 0 0 12px; padding: 18px 22px; border: 1px solid var(--line-strong); border-radius: var(--radius); background: var(--surface); }
+.legal-toc ol { margin: 0; padding-left: 1.3em; }
+.legal-toc li { margin-bottom: 6px; }
+.legal-toc a { color: var(--text); text-decoration: none; }
+.legal-section { scroll-margin-top: 80px; }
+.table-wrap { overflow-x: auto; margin: 16px 0 20px; border: 1px solid var(--line-strong); border-radius: var(--radius); }
+.legal-table { width: 100%; border-collapse: collapse; font-size: 0.875rem; line-height: 1.5; }
+.legal-table th, .legal-table td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.legal-table thead th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); white-space: nowrap; }
+.legal-table small { color: var(--muted); font-weight: 400; }
+@media (max-width: 640px) {
+    .legal-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .legal-table, .legal-table tbody, .legal-table tr, .legal-table th, .legal-table td { display: block; width: 100%; }
+    .legal-table tr { padding: 12px 14px; border-bottom: 1px solid var(--line); }
+    .legal-table th, .legal-table td { border: 0; padding: 3px 0; }
+    .legal-table td::before { content: attr(data-label); display: block; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+}
