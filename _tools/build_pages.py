@@ -14,7 +14,7 @@ SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://darcapp.com/"
 APP_STORE = "https://apps.apple.com/app/id6819036330"
 APP_ID = "6819036330"
-STYLE_VERSION = "6"
+STYLE_VERSION = "7"
 FORBIDDEN = ["\u2014", "\u2013", "&mdash;", "&ndash;", "&#8212;", "&#8211;"]
 
 # file -> (title, description, canonical path)
@@ -22,7 +22,7 @@ PAGES = {
     "index.html": (
         "Darc: Dark and Light Mode for Safari",
         "Darc is a Safari extension that gives bright websites a real dark theme and dark-only "
-        "websites a light one, on iPhone, iPad and Mac. No account, and your browsing never leaves your device.",
+        "websites a light one, on iPhone, iPad and Mac. Free to use, your browsing never leaves Safari.",
         "",
     ),
     "support.html": (
@@ -33,13 +33,13 @@ PAGES = {
     ),
     "privacy.html": (
         "Privacy Policy | Darc",
-        "What Darc and its Safari extension do with your data: pages are restyled on your device and "
-        "your browsing is never sent to us. Services, consent and your rights.",
+        "How Darc handles your data: pages are restyled on your device and your browsing never leaves "
+        "Safari. The free app uses Google and RevenueCat for ads, analytics, crash reports and purchases.",
         "privacy.html",
     ),
     "terms.html": (
         "Terms of Use | Darc",
-        "The terms for using Darc, free to use with an optional unlock bought in the App Store.",
+        "The terms for using Darc: the free version, ads, subscriptions, the lifetime unlock and what paid-app buyers keep.",
         "terms.html",
     ),
     "404.html": (
@@ -110,8 +110,9 @@ FOOTER = """<footer class="site-footer">
             </nav>
             <div class="footer-small">
                 <p>Safari, iPhone, iPad, Mac and iCloud are trademarks of Apple Inc. App Store is a service mark of Apple Inc.</p>
+                <p>This website is hosted on GitHub Pages by GitHub, Inc. Contact: <a href="mailto:iosallapps@gmail.com">iosallapps@gmail.com</a>.</p>
                 <p>&copy; 2026 Visto Apps, the brand of Darius Cirjan</p>
-                <p>Made by <a href="https://vistoapps.com">Visto Apps</a></p>
+                <p>Made by <a href="https://vistoapps.com">Visto Apps</a>. <a href="https://vistoapps.com/apps.html">More apps by Visto Apps</a></p>
             </div>
         </div>
     </footer>"""
