@@ -24,9 +24,7 @@
     --text-2: #d8d0e6;
     --text-3: #a79bbf;
     --glass: rgba(255, 255, 255, 0.06);
-    --glass-strong: rgba(255, 255, 255, 0.10);
     --glass-line: rgba(255, 255, 255, 0.14);
-    --glass-line-2: rgba(255, 255, 255, 0.26);
     --divider: rgba(255, 255, 255, 0.14);
     --link: #c9b3ff;
     --serif: "Instrument Serif", "Instrument Serif Fallback", Georgia, serif;
@@ -38,7 +36,6 @@
     --gutter: 40px;
     --measure: 34rem;
     --tap: 44px;
-    --ease: cubic-bezier(.2, .7, .2, 1);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -79,8 +76,6 @@ p { margin: 0 0 1em; }
 p:last-child { margin-bottom: 0; }
 
 .small { font-size: 0.875rem; color: var(--text-3); }
-.mono { font-family: var(--mono); font-size: 0.92em; }
-.muted { color: var(--text-3); }
 
 .wrap {
     width: 100%;
@@ -503,7 +498,6 @@ main { position: relative; display: block; }
 .doc .container { max-width: 820px; margin: 0 auto; padding-left: var(--gutter); padding-right: var(--gutter); }
 .doc h1 { font-size: clamp(2.625rem, 5.4vw, 4rem); margin-bottom: 12px; }
 .doc h2 { font-size: clamp(1.625rem, 2.8vw, 2.125rem); line-height: 1.1; margin: 44px 0 14px; }
-.doc h3 { margin: 26px 0 10px; }
 .doc p, .doc ul, .doc ol { color: var(--text-2); line-height: 1.7; margin: 0 0 16px; }
 .doc ul, .doc ol { padding-left: 1.3em; }
 .doc li { margin-bottom: 8px; }
@@ -511,14 +505,8 @@ main { position: relative; display: block; }
 .doc strong { color: var(--text); }
 .doc a { color: var(--link); overflow-wrap: anywhere; }
 .doc a:hover { color: var(--text); }
-.doc-meta, .doc .last-updated { color: var(--text-3); font-size: 0.875rem; margin-bottom: 24px; }
+.doc .last-updated { color: var(--text-3); font-size: 0.875rem; margin-bottom: 24px; }
 .doc-intro { font-size: 1.125rem; color: var(--text-3); }
-.callout {
-    margin: 24px 0; padding: 18px 20px;
-    border-left: 2px solid var(--c1);
-    background: var(--glass);
-    border-radius: 0 14px 14px 0;
-}
 .doc .toc { margin: 28px 0 8px; padding: 0; list-style: none; border-top: 1px solid var(--divider); }
 .toc li { margin: 0; border-bottom: 1px solid var(--divider); }
 .toc a { display: flex; align-items: center; min-height: var(--tap); text-decoration: none; color: var(--text); }
